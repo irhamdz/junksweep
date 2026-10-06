@@ -175,6 +175,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 466G9PS5P5;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = JunkSweep;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "JunkSweep scans your photos and videos on this device to find junk you can delete.";
@@ -200,6 +201,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 466G9PS5P5;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = JunkSweep;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "JunkSweep scans your photos and videos on this device to find junk you can delete.";
