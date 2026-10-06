@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sweep — Clean complete</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif;background:#F2F3F5;color:#0B0B0C}
+a{color:#1A5DD8;text-decoration:none}a:hover{color:#1449AD}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; position: relative; overflow: hidden; background: #F2F3F5; color: #0B0B0C; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif; padding: 72px 16px 34px; display: flex; flex-direction: column; gap: 14px">
+
+<div aria-hidden="true" style="position: relative; align-self: center; width: 240px; height: 186px">
+<div style="position: absolute; left: 18px; top: 22px; width: 104px; height: 140px; border-radius: 20px; background: #E6E8EC; border: 4px solid #FFFFFF; transform: rotate(-10deg)"></div>
+<div style="position: absolute; left: 118px; top: 18px; width: 104px; height: 140px; border-radius: 20px; background: #E6E8EC; border: 4px solid #FFFFFF; transform: rotate(9deg)"></div>
+<div style="position: absolute; left: 64px; top: 28px; width: 112px; height: 150px; border-radius: 22px; background: #FFFFFF; border: 4px solid #FFFFFF; transform: rotate(-2deg); box-shadow: 0 14px 32px rgba(16,24,40,0.14); display: flex; align-items: center; justify-content: center">
+<span style="width: 60px; height: 60px; border-radius: 30px; background: #1A5DD8; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center">
+<h1 style="margin: 0; font-size: 32px; font-weight: 600; letter-spacing: -0.03em">19.4 GB cleaned</h1>
+<span style="font-size: 15px; color: #5F646C">4,791 items moved to Recently Deleted</span>
+</div>
+
+<div style="background: #FFFFFF; border-radius: 24px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; font-size: 13px"><span style="color: #5F646C">Before</span><span style="font-weight: 600">112 of 128 GB</span></div>
+<div style="height: 8px; border-radius: 4px; background: #F2F3F5; overflow: hidden"><div style="width: 87.5%; height: 8px; border-radius: 4px; background: #9AA0A8"></div></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; font-size: 13px"><span style="color: #5F646C">After emptying</span><span style="font-weight: 600">92.6 of 128 GB</span></div>
+<div style="height: 8px; border-radius: 4px; background: #F2F3F5; overflow: hidden"><div style="width: 72.3%; height: 8px; border-radius: 4px; background: #1A5DD8"></div></div>
+</div>
+</div>
+
+<div style="background: #FFFFFF; border-radius: 24px; padding: 14px; display: flex; align-items: center; gap: 12px">
+<span style="width: 40px; height: 40px; flex-shrink: 0; border-radius: 20px; background: #F3DDA0; color: #5C3A00; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"></path></svg></span>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 15px; font-weight: 600">Free it up now</span>
+<span style="font-size: 13px; line-height: 1.35; color: #5F646C">iOS holds deleted items for 30 days</span>
+</div>
+<button type="button" style="height: 38px; padding: 0 14px; border-radius: 19px; border: 0; background: #0B0B0C; color: #FFFFFF; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap">Empty</button>
+</div>
+
+<div style="background: #FFFFFF; border-radius: 24px; padding: 14px; display: flex; align-items: center; gap: 12px">
+<span style="width: 40px; height: 40px; flex-shrink: 0; border-radius: 20px; background: #EAF0FC; color: #1A5DD8; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3l1.8 4.9L19 9.7l-5.2 1.8L12 16.5l-1.8-5L5 9.7l5.2-1.8z"></path></svg></span>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px">
+<span id="auto-label" style="font-size: 15px; font-weight: 600">Weekly AI scan</span>
+<span style="font-size: 13px; color: #5F646C">Nudge me when junk passes 2 GB</span>
+</div>
+<button type="button" role="switch" aria-checked="{{autoAria}}" aria-labelledby="auto-label" onClick="{{toggleAuto}}" style="position: relative; width: 52px; height: 32px; flex-shrink: 0; border-radius: 16px; border: 0; padding: 0; cursor: pointer; background: {{switchBg}}">
+<span style="position: absolute; top: 3px; left: {{knobX}}; width: 26px; height: 26px; border-radius: 13px; background: #FFFFFF; box-shadow: 0 1px 3px rgba(0,0,0,0.25)"></span>
+</button>
+</div>
+
+<a href="Main.dc.html" style="margin-top: auto; height: 56px; border-radius: 28px; background: #0B0B0C; color: #FFFFFF; font-size: 16px; font-weight: 600; display: flex; align-items: center; justify-content: center">Done</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const st = this.state || {};
+const auto = st.auto === undefined ? true : st.auto;
+return {
+autoAria: auto ? 'true' : 'false',
+switchBg: auto ? '#1A5DD8' : '#D5D9E0',
+knobX: auto ? '23px' : '3px',
+toggleAuto: () => this.setState({ auto: !auto })
+};
+}
+}
+</script>
+</body>
+</html>

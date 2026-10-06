@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sweep — Confirm bulk clean</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif;background:#F2F3F5;color:#0B0B0C}
+a{color:#1A5DD8;text-decoration:none}a:hover{color:#1449AD}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; position: relative; overflow: hidden; background: #F2F3F5; color: #0B0B0C; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif">
+
+<div aria-hidden="true" style="position: absolute; inset: 0; padding: 120px 16px 0; display: flex; flex-direction: column; align-items: center; gap: 16px">
+<div style="position: relative; width: 220px; height: 170px">
+<div style="position: absolute; left: 10px; top: 14px; width: 100px; height: 136px; border-radius: 18px; background: #F4C6CF; border: 4px solid #FFFFFF; transform: rotate(-10deg)"></div>
+<div style="position: absolute; left: 110px; top: 10px; width: 100px; height: 136px; border-radius: 18px; background: #1F2B4A; border: 4px solid #FFFFFF; transform: rotate(9deg)"></div>
+<div style="position: absolute; left: 56px; top: 24px; width: 110px; height: 144px; border-radius: 18px; background: #FFFFFF; border: 4px solid #FFFFFF; transform: rotate(-2deg)"></div>
+</div>
+<div style="width: 220px; height: 22px; border-radius: 11px; background: #DDE0E6"></div>
+<div style="width: 180px; height: 44px; border-radius: 22px; background: #1A5DD8"></div>
+</div>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(11,11,12,0.38)"></div>
+
+<div role="dialog" aria-modal="true" aria-labelledby="sheet-title" style="position: absolute; left: 8px; right: 8px; bottom: 8px; box-sizing: border-box; padding: 10px 18px 22px; border-radius: 36px; background: #FFFFFF; display: flex; flex-direction: column; gap: 12px">
+<div style="align-self: center; width: 40px; height: 5px; border-radius: 3px; background: #DDE0E6"></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center">
+<h1 id="sheet-title" style="margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.02em">Clean {{count}} items?</h1>
+<span style="font-size: 14px; color: #5F646C">Only AI suggestions. Anything marked “keep” stays.</span>
+</div>
+
+<div style="display: flex; flex-direction: column; background: #F2F3F5; border-radius: 22px; padding: 2px 14px">
+<sc-for list="{{cats}}" as="c" hint-placeholder-count="7">
+<label style="display: flex; align-items: center; gap: 12px; min-height: 48px; cursor: pointer">
+<span style="width: 30px; height: 30px; flex-shrink: 0; border-radius: 10px; background: {{c.tint}}; border: 2px solid #FFFFFF; box-sizing: border-box"></span>
+<span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 15px; font-weight: 600">{{c.name}}</span><span style="font-size: 12px; color: #5F646C">{{c.countLabel}}</span></span>
+<span style="font-size: 14px; font-weight: 600">{{c.sizeLabel}}</span>
+<input type="checkbox" checked="{{c.on}}" onChange="{{c.toggle}}" style="width: 22px; height: 22px; margin: 0; accent-color: #1A5DD8; flex-shrink: 0">
+</label>
+</sc-for>
+</div>
+
+<span style="display: flex; gap: 8px; align-items: center; justify-content: center; font-size: 13px; color: #2C3036">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1A5DD8" stroke-width="2" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path></svg>
+Restorable from Recently Deleted for 30 days</span>
+
+<sc-if value="{{some}}" hint-placeholder-val="{{true}}">
+<a href="Done.dc.html" style="height: 56px; border-radius: 28px; background: #C8261B; color: #FFFFFF; font-size: 16px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"></path></svg>
+Clean {{count}} items · {{size}}</a>
+</sc-if>
+<sc-if value="{{none}}" hint-placeholder-val="{{false}}">
+<button type="button" disabled="{{yes}}" style="height: 56px; border-radius: 28px; border: 0; background: #DDE0E6; color: #5F646C; font-family: inherit; font-size: 16px; font-weight: 600">Pick at least one group</button>
+</sc-if>
+<a href="Main.dc.html" style="height: 44px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 600; color: #0B0B0C">Cancel</a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const C = [
+{ name: 'Screenshots', n: 2418, mb: 3100, tint: '#C7CCF6' },
+{ name: 'Similar shots', n: 1204, mb: 4800, tint: '#F6B3B0', sub: 'best of each kept' },
+{ name: 'Duplicates', n: 612, mb: 2400, tint: '#BFE3D3' },
+{ name: 'Blurry & dark', n: 389, mb: 900, tint: '#D9DBE1' },
+{ name: 'Large videos', n: 47, mb: 6200, tint: '#F3DDA0', sub: 'delete or compress' },
+{ name: 'Accidental clips', n: 93, mb: 600, tint: '#F5C6A5' },
+{ name: 'Screen recordings', n: 28, mb: 1400, tint: '#DCC8F0' }
+];
+const st = this.state || {};
+const on = st.on || C.map(() => true);
+let n = 0, mb = 0;
+const cats = C.map((c, i) => {
+if (on[i]) { n += c.n; mb += c.mb; }
+return {
+...c,
+on: on[i],
+countLabel: c.n.toLocaleString('en-US') + ' items' + (c.sub ? ' · ' + c.sub : ''),
+sizeLabel: (c.mb / 1000).toFixed(1) + ' GB',
+toggle: () => { const next = on.slice(); next[i] = !next[i]; this.setState({ on: next }); }
+};
+});
+return { cats, count: n.toLocaleString('en-US'), size: (mb / 1000).toFixed(1) + ' GB', some: n > 0, none: n === 0, yes: true };
+}
+}
+</script>
+</body>
+</html>
