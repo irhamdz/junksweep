@@ -1,5 +1,43 @@
+# macOS
 .DS_Store
+._*
+
+# Xcode user state
 xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+
+# Build output
 DerivedData/
 build/
-*.xcuserstate
+*.ipa
+*.dSYM
+*.dSYM.zip
+*.xcarchive
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Package.resolved.bak
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Claude Code: keep shared skills and settings, ignore personal settings
+.claude/settings.local.json
+CLAUDE.local.md
+
+# Secrets and local config
+.env
+.env.*
+*.p12
+*.mobileprovision
